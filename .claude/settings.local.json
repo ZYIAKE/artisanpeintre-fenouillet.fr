@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm i:*)",
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(node:*)",
+      "WebFetch(domain:www.google.com)",
+      "Bash(npx supabase:*)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
