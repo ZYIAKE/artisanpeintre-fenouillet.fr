@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import FloatingCTA from './FloatingCTA';
 import ReviewsCarousel from './ReviewsCarousel';
+import CookieConsent from './CookieConsent';
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -21,6 +22,7 @@ export default function Layout() {
       <ReviewsCarousel />
       <Footer />
       <FloatingCTA />
+      <CookieConsent />
     </div>
   );
 }

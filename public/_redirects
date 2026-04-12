@@ -1,1 +1,6 @@
-/* /index.html 200
+# Redirect www vers non-www (contenu duplique sinon)
+https://www.artisanpeintre-fenouillet.fr/* https://artisanpeintre-fenouillet.fr/:splat 301
+
+# Devis redirige vers contact
+/devis /contact 301
+/devis/ /contact/ 301
