@@ -146,9 +146,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Compteurs animes */}
-      <AnimatedCounters />
-
       {/* Section SEO : Présentation artisan peintre Fenouillet */}
       <section className="section-padding">
         <div className="container-narrow">
