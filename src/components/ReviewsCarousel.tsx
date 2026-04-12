@@ -77,7 +77,8 @@ export default function ReviewsCarousel() {
   useEffect(() => {
     async function fetchReviews() {
       try {
-        const res = await fetch(`${SUPABASE_URL}/functions/v1/google-reviews`, {
+        const domain = window.location.hostname.replace(/^www\./, '');
+        const res = await fetch(`${SUPABASE_URL}/functions/v1/site-google-reviews?domain=${domain}`, {
           headers: { Authorization: `Bearer ${SUPABASE_KEY}` },
         });
         if (res.ok) {
