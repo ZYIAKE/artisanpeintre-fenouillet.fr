@@ -1,11 +1,8 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Clock, Sparkles, Eye, Phone, CheckCircle, MapPin, Briefcase } from 'lucide-react';
 import { BUSINESS } from '../data/business';
 import SEOHead from '../components/SEOHead';
-import Breadcrumb from '../components/Breadcrumb';
 import CTABanner from '../components/CTABanner';
-import ContactForm from '../components/ContactForm';
 import mascotte from '../assets/mascotte-peintre.jpg';
 
 const engagementIcons: Record<string, React.ElementType> = {
@@ -16,27 +13,6 @@ const engagementIcons: Record<string, React.ElementType> = {
 };
 
 export default function APropos() {
-  useEffect(() => {
-    const existing = document.querySelector('script[data-person-schema]');
-    if (existing) existing.remove();
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.setAttribute('data-person-schema', 'true');
-    script.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: BUSINESS.founderName,
-      jobTitle: 'Gerant',
-      worksFor: {
-        '@type': 'Organization',
-        '@id': BUSINESS.domain + '/#business',
-        name: BUSINESS.name,
-      },
-    });
-    document.head.appendChild(script);
-    return () => { script.remove(); };
-  }, []);
-
   return (
     <>
       <SEOHead
@@ -47,8 +23,8 @@ export default function APropos() {
 
       <section className="bg-primary-500 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+          <div className="flex items-center gap-8">
+            <div className="flex-1">
               <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">Votre artisan peintre à Fenouillet : VG Peintures et Rénovations</h1>
               <p className="text-primary-100 max-w-2xl text-lg">
                 {BUSINESS.aboutHeroText}
@@ -63,11 +39,15 @@ export default function APropos() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block bg-white rounded-2xl shadow-xl p-6 text-gray-900">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">Demande de devis gratuit</h2>
-              <p className="text-sm text-gray-500 mb-4">Réponse sous 24h — sans engagement</p>
-              <ContactForm />
-              <p className="text-xs text-gray-400 mt-3 text-center">🔒 Vos données restent confidentielles</p>
+            <div className="hidden lg:block shrink-0">
+              <img
+                src={mascotte}
+                alt={`Mascotte ${BUSINESS.trade}`}
+                className="w-48 xl:w-56 rounded-2xl drop-shadow-2xl"
+                loading="lazy"
+                width={192}
+                height={240}
+              />
             </div>
           </div>
         </div>
@@ -76,10 +56,6 @@ export default function APropos() {
       {/* Section métier — contenu SEO stable */}
       <section className="section-padding">
         <div className="container-narrow">
-          <Breadcrumb items={[
-            { label: 'Accueil', path: '/' },
-            { label: 'A propos', path: '/a-propos' },
-          ]} />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">

@@ -1,7 +1,6 @@
 import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 import { BUSINESS } from '../data/business';
 import SEOHead from '../components/SEOHead';
-import Breadcrumb from '../components/Breadcrumb';
 import ContactForm from '../components/ContactForm';
 import GoogleMap from '../components/GoogleMap';
 import mascotte from '../assets/mascotte-peintre.jpg';
@@ -46,10 +45,6 @@ export default function Contact() {
 
       <section className="section-padding">
         <div className="container-narrow">
-          <Breadcrumb items={[
-            { label: 'Accueil', path: '/' },
-            { label: 'Contact', path: '/contact' },
-          ]} />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Demande de devis gratuit</h2>

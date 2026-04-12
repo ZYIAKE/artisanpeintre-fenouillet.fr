@@ -12,9 +12,6 @@ import MentionsLegales from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import Cookies from './pages/Cookies';
 import PlanDuSite from './pages/PlanDuSite';
-import Realisations from './pages/Realisations';
-import Avis from './pages/Avis';
-import FAQPage from './pages/FAQPage';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -28,9 +25,6 @@ export default function App() {
           <Route path="zones-intervention" element={<ZonesHub />} />
           <Route path="zones-intervention/:slug" element={<ZonePage />} />
           <Route path="tarifs" element={<Tarifs />} />
-          <Route path="realisations" element={<Realisations />} />
-          <Route path="avis" element={<Avis />} />
-          <Route path="faq" element={<FAQPage />} />
           <Route path="a-propos" element={<APropos />} />
           <Route path="contact" element={<Contact />} />
           <Route path="mentions-legales" element={<MentionsLegales />} />

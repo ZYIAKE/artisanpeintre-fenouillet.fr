@@ -84,49 +84,6 @@ export default function SEOHead({ title, description, canonical, faqs, service }
       document.head.appendChild(serviceScript);
     }
 
-    // Homepage-only schemas: WebSite + SearchAction + Organization
-    if (canonical === '/') {
-      const websiteSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        url: BUSINESS.domain + '/',
-        name: BUSINESS.name,
-        description: BUSINESS.footerDescription,
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: BUSINESS.domain + '/plan-du-site',
-          'query-input': 'required name=search_term_string',
-        },
-      };
-      const ws = document.createElement('script');
-      ws.type = 'application/ld+json';
-      ws.setAttribute('data-seo', 'true');
-      ws.textContent = JSON.stringify(websiteSchema);
-      document.head.appendChild(ws);
-
-      const orgSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        '@id': BUSINESS.domain + '/#organization',
-        name: BUSINESS.name,
-        url: BUSINESS.domain,
-        logo: BUSINESS.domain + '/favicon.jpg',
-        contactPoint: {
-          '@type': 'ContactPoint',
-          telephone: BUSINESS.phoneE164,
-          contactType: 'customer service',
-          availableLanguage: 'French',
-        },
-        foundingDate: String(BUSINESS.foundingYear),
-        founder: { '@type': 'Person', name: BUSINESS.founderName },
-      };
-      const os = document.createElement('script');
-      os.type = 'application/ld+json';
-      os.setAttribute('data-seo', 'true');
-      os.textContent = JSON.stringify(orgSchema);
-      document.head.appendChild(os);
-    }
-
     if (faqs && faqs.length > 0) {
       const faqSchema = {
         '@context': 'https://schema.org',

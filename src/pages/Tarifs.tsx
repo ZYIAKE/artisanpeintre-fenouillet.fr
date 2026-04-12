@@ -3,9 +3,7 @@ import { Phone, Info } from 'lucide-react';
 import { services } from '../data/services';
 import { BUSINESS } from '../data/business';
 import SEOHead from '../components/SEOHead';
-import Breadcrumb from '../components/Breadcrumb';
 import CTABanner from '../components/CTABanner';
-import ContactForm from '../components/ContactForm';
 import mascotte from '../assets/mascotte-peintre.jpg';
 
 const variations = [
@@ -27,8 +25,8 @@ export default function Tarifs() {
 
       <section className="bg-primary-500 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+          <div className="flex items-center gap-8">
+            <div className="flex-1">
               <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">Tarifs peintre en bâtiment à {BUSINESS.address.city} et environs</h1>
               <p className="text-primary-100 max-w-2xl text-lg">
                 Des tarifs clairs et transparents. Nous vous communiquons le prix avant toute intervention. Pas de mauvaise surprise.
@@ -43,11 +41,15 @@ export default function Tarifs() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block bg-white rounded-2xl shadow-xl p-6 text-gray-900">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">Demande de devis gratuit</h2>
-              <p className="text-sm text-gray-500 mb-4">Réponse sous 24h — sans engagement</p>
-              <ContactForm />
-              <p className="text-xs text-gray-400 mt-3 text-center">🔒 Vos données restent confidentielles</p>
+            <div className="hidden lg:block shrink-0">
+              <img
+                src={mascotte}
+                alt={`Mascotte ${BUSINESS.trade}`}
+                className="w-48 xl:w-56 rounded-2xl drop-shadow-2xl"
+                loading="lazy"
+                width={192}
+                height={240}
+              />
             </div>
           </div>
         </div>
@@ -55,10 +57,6 @@ export default function Tarifs() {
 
       <section className="section-padding">
         <div className="container-narrow">
-          <Breadcrumb items={[
-            { label: 'Accueil', path: '/' },
-            { label: 'Tarifs', path: '/tarifs' },
-          ]} />
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
             <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-200 px-6 py-3">
               <span className="font-semibold text-gray-900 text-sm">Prestation</span>

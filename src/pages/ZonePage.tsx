@@ -33,8 +33,8 @@ export default function ZonePage() {
 
       <section className="bg-primary-500 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+          <div className="flex items-center gap-8">
+            <div className="flex-1">
               <Link to="/zones-intervention" className="inline-flex items-center gap-1 text-primary-200 hover:text-white text-sm mb-4 transition-colors">
                 <ArrowLeft className="w-4 h-4" />
                 Toutes les zones
@@ -53,11 +53,44 @@ export default function ZonePage() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block bg-white rounded-2xl shadow-xl p-6 text-gray-900">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">Demande de devis gratuit</h2>
-              <p className="text-sm text-gray-500 mb-4">Réponse sous 24h — sans engagement</p>
-              <ContactForm />
-              <p className="text-xs text-gray-400 mt-3 text-center">🔒 Vos données restent confidentielles</p>
+            <div className="hidden lg:block shrink-0">
+              <img
+                src={mascotte}
+                alt={`Mascotte ${BUSINESS.trade}`}
+                className="w-48 xl:w-56 rounded-2xl drop-shadow-2xl"
+                loading="lazy"
+                width={192}
+                height={240}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-gray-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Devis gratuit à {zone.name}</h2>
+              <p className="text-gray-600 text-sm mb-4">
+                Décrivez votre projet de peinture à {zone.name} et recevez un devis sous 48h.
+              </p>
+              <ContactForm compact />
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">{zone.name} sur la carte</h2>
+              <div className="rounded-xl overflow-hidden shadow-md mb-4">
+                <GoogleMap query={zone.mapQuery} height="260px" />
+              </div>
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(BUSINESS.address.full)}&destination=${encodeURIComponent(zone.name + ', ' + BUSINESS.address.department + ', France')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
+              >
+                <Navigation className="w-4 h-4" />
+                Itinéraire vers {zone.name}
+              </a>
             </div>
           </div>
         </div>
@@ -151,35 +184,6 @@ export default function ZonePage() {
             <ArrowLeft className="w-4 h-4" />
             Toutes les zones d'intervention
           </Link>
-        </div>
-      </section>
-
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Devis gratuit à {zone.name}</h2>
-              <p className="text-gray-600 text-sm mb-4">
-                Décrivez votre projet de peinture à {zone.name} et recevez un devis sous 48h.
-              </p>
-              <ContactForm compact />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-4">{zone.name} sur la carte</h2>
-              <div className="rounded-xl overflow-hidden shadow-md mb-4">
-                <GoogleMap query={zone.mapQuery} height="260px" />
-              </div>
-              <a
-                href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(BUSINESS.address.full)}&destination=${encodeURIComponent(zone.name + ', ' + BUSINESS.address.department + ', France')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
-              >
-                <Navigation className="w-4 h-4" />
-                Itinéraire vers {zone.name}
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 

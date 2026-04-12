@@ -8,7 +8,6 @@ import Breadcrumb from '../components/Breadcrumb';
 import FAQ from '../components/FAQ';
 import CTABanner from '../components/CTABanner';
 import GoogleMap from '../components/GoogleMap';
-import ContactForm from '../components/ContactForm';
 import mascotte from '../assets/mascotte-peintre.jpg';
 
 const featuredZones = zones.slice(0, 6);
@@ -37,8 +36,8 @@ export default function ServicePage() {
 
       <section className="bg-primary-500 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
+          <div className="flex items-center gap-8">
+            <div className="flex-1">
               <Link to="/services" className="inline-flex items-center gap-1 text-primary-200 hover:text-white text-sm mb-4 transition-colors">
                 <ArrowLeft className="w-4 h-4" />
                 Tous les services
@@ -55,11 +54,15 @@ export default function ServicePage() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block bg-white rounded-2xl shadow-xl p-6 text-gray-900">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">Demande de devis gratuit</h2>
-              <p className="text-sm text-gray-500 mb-4">Réponse sous 24h — sans engagement</p>
-              <ContactForm />
-              <p className="text-xs text-gray-400 mt-3 text-center">🔒 Vos données restent confidentielles</p>
+            <div className="hidden lg:block shrink-0">
+              <img
+                src={mascotte}
+                alt={`Mascotte ${BUSINESS.trade}`}
+                className="w-48 xl:w-56 rounded-2xl drop-shadow-2xl"
+                loading="lazy"
+                width={192}
+                height={240}
+              />
             </div>
           </div>
         </div>

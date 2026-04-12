@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Phone, FileText, Shield, Clock, CheckCircle, Sparkles,
   PaintBucket, Home, Building2, Wallpaper, Layers, Palette,
-  MapPin, ChevronRight, Euro, Wrench, Star, Award, Users,
+  MapPin, ChevronRight, Euro, Wrench,
 } from 'lucide-react';
 import { BUSINESS } from '../data/business';
 import { services } from '../data/services';
@@ -26,67 +25,6 @@ const reassurance = [
 ];
 
 const featuredZones = zones.slice(0, 8);
-
-const counters = [
-  { icon: Award, value: 25, suffix: '+', label: "ans d'experience" },
-  { icon: Wrench, value: BUSINESS.projectsDone, suffix: '+', label: 'chantiers realises' },
-  { icon: Star, value: 5.0, suffix: '/5', label: 'sur Google', decimals: 1 },
-  { icon: Users, value: 20, suffix: '+', label: 'communes couvertes' },
-];
-
-function AnimatedCounters() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [counts, setCounts] = useState(counters.map(() => 0));
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.3 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!visible) return;
-    const duration = 1500;
-    const steps = 40;
-    const interval = duration / steps;
-    let step = 0;
-    const timer = setInterval(() => {
-      step++;
-      const progress = Math.min(step / steps, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCounts(counters.map(c => Number((c.value * eased).toFixed(c.decimals ?? 0))));
-      if (step >= steps) clearInterval(timer);
-    }, interval);
-    return () => clearInterval(timer);
-  }, [visible]);
-
-  return (
-    <section ref={ref} className="py-12 bg-gradient-to-r from-blue-900 to-blue-800">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {counters.map((c, i) => {
-            const Icon = c.icon;
-            return (
-              <div key={i} className="text-white">
-                <Icon className="w-8 h-8 mx-auto mb-2 text-orange-400" />
-                <p className="text-3xl sm:text-4xl font-bold">
-                  {counts[i]}{c.suffix}
-                </p>
-                <p className="text-sm text-blue-200 mt-1">{c.label}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function HomePage() {
   return (
@@ -136,18 +74,18 @@ export default function HomePage() {
                 <span>Devis gratuit & sans engagement</span>
               </p>
             </div>
-            <div className="hidden lg:block bg-white rounded-2xl shadow-xl p-6 text-gray-900">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">Demande de devis gratuit</h2>
-              <p className="text-sm text-gray-500 mb-4">Réponse sous 24h — sans engagement</p>
-              <ContactForm />
-              <p className="text-xs text-gray-400 mt-3 text-center">🔒 Vos données restent confidentielles</p>
+            <div className="hidden lg:flex justify-center">
+              <img
+                src={mascotte}
+                alt={`Mascotte ${BUSINESS.trade} - Votre ${BUSINESS.trade} à ${BUSINESS.address.city}`}
+                className="w-80 xl:w-96 rounded-2xl drop-shadow-2xl"
+                width={384}
+                height={480}
+              />
             </div>
           </div>
         </div>
       </section>
-
-      {/* Compteurs animes */}
-      <AnimatedCounters />
 
       {/* Section SEO : Présentation artisan peintre Fenouillet */}
       <section className="section-padding">

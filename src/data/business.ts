@@ -1,13 +1,7 @@
 export const BUSINESS = {
   // --- Identité ---
-  name: 'VG Peintures et Rénovations',
-  legalName: 'VG Peintures et Rénovations',
-  siret: '89403726600034',
-  siren: '894037266',
-  tva: 'FR21894037266',
-  founderName: 'Vincent George',
-  foundingYear: 2021,
-  projectsDone: 100,
+  name: 'Artisan Peintre 31',
+  legalName: 'Artisan Peintre 31',
   phone: '05 17 94 83 78',
   phoneE164: '+33517948378',
   phoneTel: 'tel:0517948378',
@@ -35,7 +29,7 @@ export const BUSINESS = {
   trade: 'peintre',
   tradeName: 'Artisan Peintre',
   tradeDomain: 'peinture en bâtiment',
-  schemaType: 'HousePainter' as string,
+  schemaType: 'HomeAndConstructionBusiness' as string,
 
   // --- Textes hero / CTA ---
   heroTagline: 'Peintre en bâtiment à Fenouillet et environs',
@@ -170,21 +164,10 @@ export const BUSINESS = {
 export const LOCAL_BUSINESS_JSONLD = {
   '@context': 'https://schema.org',
   '@type': BUSINESS.schemaType,
-  '@id': BUSINESS.domain + '/#business',
   name: BUSINESS.name,
-  description: BUSINESS.footerDescription,
   telephone: BUSINESS.phoneE164,
   email: BUSINESS.email,
   url: BUSINESS.domain,
-  logo: BUSINESS.domain + '/favicon.jpg',
-  image: BUSINESS.domain + '/og-image.jpg',
-  foundingDate: String(BUSINESS.foundingYear),
-  founder: {
-    '@type': 'Person',
-    name: BUSINESS.founderName,
-  },
-  taxID: BUSINESS.siret,
-  vatID: BUSINESS.tva,
   address: {
     '@type': 'PostalAddress',
     streetAddress: BUSINESS.address.street,
@@ -207,7 +190,6 @@ export const LOCAL_BUSINESS_JSONLD = {
     },
     geoRadius: '20000',
   },
-  hasMap: 'https://www.google.com/maps/place/VG+Peintures+et+R%C3%A9novations',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: BUSINESS.phoneE164,
@@ -222,28 +204,7 @@ export const LOCAL_BUSINESS_JSONLD = {
       closes: '19:00',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '3',
-    bestRating: '5',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Services de peinture',
-    itemListElement: BUSINESS.contactFormServices
-      .filter(s => s.value !== 'autre')
-      .map(s => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: s.label,
-          url: BUSINESS.domain + '/services/' + s.value,
-        },
-      })),
-  },
-  currenciesAccepted: 'EUR',
-  paymentAccepted: 'Especes, Cheque, Virement, Carte bancaire',
   sameAs: [],
-  priceRange: '$$',
+  priceRange: '€€',
+  image: BUSINESS.domain + '/mascotte.png',
 };
