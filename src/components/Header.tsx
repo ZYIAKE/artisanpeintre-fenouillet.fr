@@ -7,6 +7,7 @@ import mascotteLogo from '../assets/mascotte-peintre.jpg';
 const navLinks = [
   { to: '/', label: 'Accueil' },
   { to: '/services', label: 'Services' },
+  { to: '/realisations', label: 'Réalisations' },
   { to: '/zones-intervention', label: 'Zones' },
   { to: '/tarifs', label: 'Tarifs' },
   { to: '/a-propos', label: 'À propos' },

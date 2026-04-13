@@ -7,6 +7,7 @@ import mascotteLogo from '../assets/mascotte-peintre.jpg';
 
 const quickLinks = [
   { to: '/services', label: 'Nos services' },
+  { to: '/realisations', label: 'Nos réalisations' },
   { to: '/zones-intervention', label: 'Zones d\'intervention' },
   { to: '/tarifs', label: 'Tarifs' },
   { to: '/a-propos', label: 'À propos' },
