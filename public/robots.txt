@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.artisanpeintre-fenouillet.fr/sitemap.xml
+
+Sitemap: https://artisanpeintre-fenouillet.fr/sitemap.xml
