@@ -58,6 +58,40 @@ const observer = new IntersectionObserver(
 )
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
+// ══ STAT COUNTERS (animates 0 → target on scroll into view) ══
+const statObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return
+      const el = entry.target
+      const finalText = el.textContent.trim()
+      const match = finalText.match(/^(\d+(?:[\.,]\d+)?)(.*)$/)
+      if (!match) { statObserver.unobserve(el); return }
+      const endRaw = match[1].replace(',', '.')
+      const suffix = match[2] || ''
+      const end = parseFloat(endRaw)
+      const isFloat = endRaw.includes('.')
+      const duration = 1400
+      const start = performance.now()
+      function step(now) {
+        const p = Math.min(1, (now - start) / duration)
+        const e = 1 - Math.pow(1 - p, 3)
+        const current = end * e
+        el.textContent = (isFloat ? current.toFixed(1) : Math.round(current)) + suffix
+        if (p < 1) requestAnimationFrame(step)
+        else el.textContent = (isFloat ? end.toFixed(1) : end) + suffix
+      }
+      requestAnimationFrame(step)
+      statObserver.unobserve(el)
+    })
+  },
+  { threshold: 0.5 }
+)
+document.querySelectorAll('.stat-number').forEach(el => {
+  el.dataset.statFinal = el.textContent.trim()
+  statObserver.observe(el)
+})
+
 // ══ SMOOTH SCROLL ══
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {

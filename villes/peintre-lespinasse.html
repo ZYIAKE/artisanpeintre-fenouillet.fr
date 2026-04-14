@@ -30,9 +30,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#627d98">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://artisanpeintre-fenouillet.fr/"},{"@type":"ListItem","position":2,"name":"Zone d'intervention","item":"https://artisanpeintre-fenouillet.fr/zone-intervention"},{"@type":"ListItem","position":3,"name":"Lespinasse","item":"https://artisanpeintre-fenouillet.fr/villes/peintre-lespinasse"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://artisanpeintre-fenouillet.fr/#localbusiness","name":"VG Peintures et Rénovations","image":"https://artisanpeintre-fenouillet.fr/favicon.jpg","url":"https://artisanpeintre-fenouillet.fr/","telephone":"+33517948378","email":"contact@artisanpeintre-fenouillet.fr","address":{"@type":"PostalAddress","streetAddress":"8 Rue des Mariniers","addressLocality":"Fenouillet","postalCode":"31150","addressRegion":"Haute-Garonne","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":43.6744,"longitude":1.3983},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"19:00"}],"founder":{"@type":"Person","name":"Vincent George"},"foundingDate":"2021","taxID":"FR21894037266","identifier":{"@type":"PropertyValue","name":"SIRET","value":"89403726600034"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","bestRating":"5","worstRating":"1","reviewCount":"3"},"priceRange":"$","areaServed":{"@type":"City","name":"Lespinasse"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services de peinture","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture intérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture extérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ravalement de façade"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Papier peint et revêtements"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Enduit et préparation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture décorative"}}]}}</script>
+
+  <!-- COOKIE-CONSENT GATED CLARITY — loaded by cookie-consent.js on user accept -->
+  <script>window.__loadClarity=function(){if(window.clarity&&window.clarity.q)return;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wbl0s5g3es")};</script>
 </head>
 <body>
 
@@ -401,5 +405,19 @@
 <script type="module" src="../src/js/main.js"></script>
 <script type="module" src="../src/js/form-handler.js"></script>
 <script type="module" src="../src/js/reviews.js"></script>
+
+  <!-- ══ COOKIE CONSENT BANNER (RGPD) ══ -->
+  <div id="cookie-consent-banner" hidden role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc">
+    <p id="cookie-title"><strong>Cookies analytiques</strong></p>
+    <p id="cookie-desc">
+      Nous utilisons Google Analytics pour comprendre comment vous utilisez notre site et améliorer votre expérience. Aucune donnée personnelle n'est vendue.
+      <a href="/politique-confidentialite">En savoir plus</a>.
+    </p>
+    <div class="cookie-actions">
+      <button type="button" id="cookie-refuse">Refuser</button>
+      <button type="button" id="cookie-accept">Accepter</button>
+    </div>
+  </div>
+  <script type="module" src="/src/js/cookie-consent.js"></script>
 </body>
 </html>

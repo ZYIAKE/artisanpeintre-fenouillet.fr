@@ -37,13 +37,17 @@
   <!-- Theme & Manifest -->
   <meta name="theme-color" content="#627d98">
   <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
   <!-- Google Analytics (lazy) -->
   <script>
-    window.addEventListener('load', function() {
+    // ── COOKIE-CONSENT GATED GA4 ── only loads after user accepts
+    window.__loadGA4 = function() {
+      if (window.__ga4Loaded) return;
+      window.__ga4Loaded = true;
       var s = document.createElement('script');
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JHWM1XM0TB';
       s.async = true;
@@ -54,7 +58,7 @@
         gtag('js', new Date());
         gtag('config', 'G-JHWM1XM0TB');
       };
-    });
+    };
   </script>
 
   <!-- JSON-LD: LocalBusiness -->
@@ -226,6 +230,9 @@
     }
   }
   </script>
+
+  <!-- COOKIE-CONSENT GATED CLARITY — loaded by cookie-consent.js on user accept -->
+  <script>window.__loadClarity=function(){if(window.clarity&&window.clarity.q)return;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wbl0s5g3es")};</script>
 </head>
 <body>
 
@@ -796,5 +803,19 @@
   <script type="module" src="src/js/form-handler.js"></script>
   <script type="module" src="src/js/reviews.js"></script>
 
+
+  <!-- ══ COOKIE CONSENT BANNER (RGPD) ══ -->
+  <div id="cookie-consent-banner" hidden role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc">
+    <p id="cookie-title"><strong>Cookies analytiques</strong></p>
+    <p id="cookie-desc">
+      Nous utilisons Google Analytics pour comprendre comment vous utilisez notre site et améliorer votre expérience. Aucune donnée personnelle n'est vendue.
+      <a href="/politique-confidentialite">En savoir plus</a>.
+    </p>
+    <div class="cookie-actions">
+      <button type="button" id="cookie-refuse">Refuser</button>
+      <button type="button" id="cookie-accept">Accepter</button>
+    </div>
+  </div>
+  <script type="module" src="/src/js/cookie-consent.js"></script>
 </body>
 </html>
