@@ -49,7 +49,8 @@
       "Bash(grep -roh 'logo-sub\">[^<]*' *.html villes/*.html realisations/*.html)",
       "Bash(grep -roh 'rel=\"icon\"[^>]*' *.html villes/*.html realisations/*.html)",
       "Bash(ls public/favicon*)",
-      "Bash(grep -l 'logo-name\">VG<' villes/*.html)"
+      "Bash(grep -l 'logo-name\">VG<' villes/*.html)",
+      "Bash(gh run:*)"
     ]
   }
 }
