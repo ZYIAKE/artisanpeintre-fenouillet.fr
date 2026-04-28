@@ -1,0 +1,17 @@
+{
+  "name": "VG Peintures et Rénovations",
+  "short_name": "VG Peintures",
+  "description": "Peintre en bâtiment à FENOUILLET",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#0F4C81",
+  "icons": [
+    {
+      "src": "/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
